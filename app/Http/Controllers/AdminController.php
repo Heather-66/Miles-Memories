@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function addpost(){
-        return view('admin.add_post');
+        return view('admin.allpost');
     }
     public function createpost(Request $request){
         $post=new Post();
@@ -23,7 +23,7 @@ class AdminController extends Controller
         $post->save();
         if($post->save()){
             $request->image->move('img',$imagename);       
-            return redirect()->route('admin.addpost')->with('status', 'Added successfully.');;
+            return redirect()->route('admin.allpost')->with('status', 'Added successfully.');;
         }
     }
     public function allpost(){

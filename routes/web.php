@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/',[UserController::class, 'showDataInHome'])->name('home');
 Route::get('/fullpost/{id}', [UserController::class, 'showFullPost'])->name('fullpost');
+Route::get('/my_search',[UserController::class, 'my_search'])->name('posts.search');
 
 Route::get('/dashboard',[UserController::class, 'home'])
 ->middleware(['auth', 'verified'])->name('dashboard');
@@ -19,10 +20,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function(){
     Route::get('/dashboard/allpost/{id}',[AdminController::class, 'updatePost'])->name('admin.update');
     Route::post('/dashboard/allpost/{id}',[AdminController::class, 'postupdate'])->name('admin.postupdate');
     Route::get('/dashboard/deletepost/{id}',[AdminController::class, 'deletePost'])->name('admin.deletepost');
-
-
-
-
 });
 
 Route::middleware('auth')->group(function () {

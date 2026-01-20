@@ -16,8 +16,6 @@
                 <div class="nav-links">
                     <a href="{{route('home')}}" class="active">Home</a>
                     <a href="">Blog</a>
-                    <a href="">About</a>
-                    <a href="">Contact</a>
                     @if (Route::has('login'))
                     @auth
                         <a
@@ -41,7 +39,6 @@
         <div class="container">
             <h1>Welcome to Miles & Memories</h1>
             <p>Travel Stories That Inspire Your Next Adventure.”</p>
-            <a href="/blog" class="btn btn-primary">Browse Articles</a>
         </div>
     </section>
 

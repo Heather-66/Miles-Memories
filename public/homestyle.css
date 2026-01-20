@@ -2,7 +2,7 @@
 :root {
     --primary-color: #01063f;
     --primary-dark: #08063b;
-    --secondary-color: #20bceb;
+    --secondary-color: #0f80a3;
     --dark-color: #1e293b;
     --light-color: #f8fafc;
     --gray-color: #94a3b8;
@@ -117,6 +117,57 @@ header {
 .btn-primary:hover {
     background-color: #e2e8f0;
     transform: translateY(-2px);
+}
+
+/* Search Form Container */
+.search-form {
+    display: flex;
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Search Input */
+.search-form input[type="search"] {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.search-form input[type="search"]::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Search Button */
+.search-form button {
+    background: #0892ed; /* travel-friendly accent color, you can change */
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.search-form button:hover {
+    background: #0892ed;
+}
+
+/* Optional: input focus effect */
+.search-form input[type="search"]:focus {
+    box-shadow: 0 0 8px rgba(255,107,107,0.5);
 }
 
 /* Featured Posts */

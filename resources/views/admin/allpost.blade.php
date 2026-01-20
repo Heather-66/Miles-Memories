@@ -18,6 +18,47 @@
                         {{session('status')}}
                     </div>
                     @endif
+                    <button style="background-color: #2196F3; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px;" type="button" class="btn-travel" data-bs-toggle="modal" data-bs-target="#addPostModal">Add New Post</button>
+
+              <!-- Modal -->
+            <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                        <form action="{{route('admin.createpost')}}" method ="post"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <input type="text" name="title" placeholder="Enter Post Title here"><br><br><br>
+                       <div class="mb-3">
+                                <textarea id="post-description" name="description">Write your post here...</textarea>
+                                </div><br>
+                        <input type="file" name="image"> <br><br><br>
+                        <input style="background-color: #2196F3; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px;" type="submit" name="submit" value="add post">
+                    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts for Bootstrap & TinyMCE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+    <script>
+    ClassicEditor
+        .create(document.querySelector('#post-description'), {
+            toolbar: ['heading', '|', 'bold', 'italic', 'underline', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo'],
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
                     <!--  all post   -->
                     <h1 style="color: #333; text-align: center; margin-bottom: 30px;">Posts Management</h1>
     
@@ -55,5 +96,7 @@
             </div>
         </div>
     </div>
+    
     @endsection
+    
 </x-app-layout>

@@ -27,8 +27,12 @@
                     <input type="text" name="title" value="{{ $post->title }}"placeholder="Enter post title"
                 class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" require > </div>                        
                 <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1">Post Description</label>
-            <textarea name="description" rows="6" placeholder="Write your post content here..."class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"required>{{ $post->description }}</textarea></div>
+             <!-- Post Description with CKEditor -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Post Description</label>
+                            <textarea id="post-description" name="description" rows="6" placeholder="Write your post content here..."
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" required>{{ $post->description }}</textarea>
+                        </div>
                         <img src="{{asset('img/' .$post->image)}}" style="width:100px; height:100px; margin-left: 450px; margin-bottom:10px;" alt="{{$post->image}}">
                         <input type="file" name="image"> <br><br><br>
                         <input style="border: 1px solid blue; text-align: center; padding: 10px" type="submit" name="submit" value="update post">
@@ -37,5 +41,19 @@
             </div>
         </div>
     </div>
+    <!-- CKEditor 5 Script -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#post-description'), {
+                toolbar: [
+                    'heading', '|', 'bold', 'italic', 'underline', 'link', 
+                    'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo'
+                ]
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
     @endsection
 </x-app-layout>
